@@ -30,3 +30,4 @@ favicon        = "img/favicon.png"
 
 [appearance]
     colorScheme = "dark"
+    defaultTheme = "dark"

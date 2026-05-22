@@ -1,0 +1,33 @@
+<!-- Matrix Rain Effect -->
+<script src="/js/matrix.js"></script>
+
+<!-- Typing Effect -->
+<script src="/js/typing.js"></script>
+
+<!-- Security Status Indicator -->
+<script>
+(function() {
+    // Add terminal-style cursor to site description
+    const desc = document.querySelector('.site-description');
+    if (desc) {
+        const cursor = document.createElement('span');
+        cursor.className = 'cursor';
+        desc.appendChild(cursor);
+    }
+
+    // Add binary decoration to footer
+    const footer = document.querySelector('.footer');
+    if (footer) {
+        const binary = document.createElement('div');
+        binary.className = 'binary-text';
+        binary.style.marginTop = '10px';
+        binary.style.opacity = '0.3';
+        let binaryStr = '';
+        for (let i = 0; i < 200; i++) {
+            binaryStr += Math.random() > 0.5 ? '1' : '0';
+        }
+        binary.textContent = binaryStr;
+        footer.appendChild(binary);
+    }
+})();
+</script>

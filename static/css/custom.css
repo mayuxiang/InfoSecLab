@@ -1,0 +1,475 @@
+/* === Cyberpunk / InfoSec Lab Custom Theme === */
+
+/* Import sci-fi fonts */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+/* CSS Variables */
+:root {
+    --neon-cyan: #00f0ff;
+    --neon-green: #00ff41;
+    --neon-purple: #b829e3;
+    --neon-blue: #2980b9;
+    --neon-red: #ff3333;
+    --dark-bg: #0a0a0f;
+    --dark-surface: #12121a;
+    --dark-card: #1a1a2e;
+    --grid-color: rgba(0, 240, 255, 0.03);
+    --text-primary: #e0e0e0;
+    --text-secondary: #8892b0;
+}
+
+/* Global Dark Theme */
+body {
+    background-color: var(--dark-bg) !important;
+    color: var(--text-primary) !important;
+    font-family: 'Rajdhani', 'JetBrains Mono', monospace !important;
+    overflow-x: hidden;
+}
+
+/* Animated Grid Background */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(var(--grid-color) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: -2;
+    animation: gridScroll 20s linear infinite;
+}
+
+@keyframes gridScroll {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(50px); }
+}
+
+/* Scanline effect */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.15) 0px,
+        rgba(0, 0, 0, 0.15) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.15;
+}
+
+/* === Header / Navigation === */
+.header {
+    background: rgba(10, 10, 15, 0.95) !important;
+    border-bottom: 1px solid rgba(0, 240, 255, 0.2) !important;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(0, 240, 255, 0.05);
+}
+
+.header .logo {
+    font-family: 'Orbitron', monospace !important;
+    font-weight: 700;
+    color: var(--neon-cyan) !important;
+    text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.navigation-menu a {
+    font-family: 'Orbitron', monospace !important;
+    font-size: 0.85rem !important;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--text-secondary) !important;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.navigation-menu a:hover {
+    color: var(--neon-cyan) !important;
+    text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+}
+
+.navigation-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--neon-cyan);
+    box-shadow: 0 0 10px var(--neon-cyan);
+    transition: width 0.3s ease;
+}
+
+.navigation-menu a:hover::after {
+    width: 100%;
+}
+
+/* === Sidebar === */
+.sidebar {
+    background: var(--dark-surface) !important;
+    border-right: 1px solid rgba(0, 240, 255, 0.1) !important;
+}
+
+.site-name a {
+    font-family: 'Orbitron', monospace !important;
+    font-weight: 800;
+    color: var(--neon-cyan) !important;
+    text-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.site-description {
+    font-family: 'JetBrains Mono', monospace !important;
+    font-size: 0.8rem !important;
+    color: var(--neon-green) !important;
+    text-shadow: 0 0 5px rgba(0, 255, 65, 0.3);
+}
+
+/* === Main Content === */
+.main-container {
+    background: var(--dark-bg) !important;
+}
+
+.content {
+    background: var(--dark-bg) !important;
+}
+
+/* === Cards / Articles === */
+article, .article-card {
+    background: var(--dark-card) !important;
+    border: 1px solid rgba(0, 240, 255, 0.1) !important;
+    border-radius: 4px !important;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+article::before, .article-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--neon-cyan), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+article:hover, .article-card:hover {
+    border-color: rgba(0, 240, 255, 0.3) !important;
+    box-shadow: 0 0 30px rgba(0, 240, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+article:hover::before, .article-card:hover::before {
+    opacity: 1;
+}
+
+/* === Headings === */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Orbitron', monospace !important;
+    color: var(--neon-cyan) !important;
+    text-shadow: 0 0 5px rgba(0, 240, 255, 0.2);
+    letter-spacing: 1px;
+}
+
+h1 { font-weight: 900; }
+h2 { font-weight: 700; }
+h3 { font-weight: 600; }
+
+/* === Links === */
+a {
+    color: var(--neon-cyan) !important;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: var(--neon-green) !important;
+    text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+}
+
+/* === Code blocks === */
+code, pre {
+    font-family: 'JetBrains Mono', monospace !important;
+    background: rgba(0, 240, 255, 0.05) !important;
+    border: 1px solid rgba(0, 240, 255, 0.1) !important;
+}
+
+pre {
+    position: relative;
+}
+
+pre::before {
+    content: '>';
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    color: var(--neon-green);
+    font-weight: bold;
+    text-shadow: 0 0 5px var(--neon-green);
+}
+
+/* === Tables === */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    background: var(--dark-card);
+    border: 1px solid rgba(0, 240, 255, 0.1);
+}
+
+th {
+    background: rgba(0, 240, 255, 0.1) !important;
+    font-family: 'Orbitron', monospace !important;
+    font-weight: 600;
+    color: var(--neon-cyan) !important;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    border-bottom: 2px solid rgba(0, 240, 255, 0.2);
+}
+
+td {
+    border-bottom: 1px solid rgba(0, 240, 255, 0.05);
+    padding: 12px 16px;
+}
+
+tr:hover td {
+    background: rgba(0, 240, 255, 0.03);
+}
+
+/* === Search Widget === */
+.search-form input {
+    background: var(--dark-card) !important;
+    border: 1px solid rgba(0, 240, 255, 0.2) !important;
+    color: var(--text-primary) !important;
+    font-family: 'JetBrains Mono', monospace !important;
+    border-radius: 2px;
+}
+
+.search-form input:focus {
+    border-color: var(--neon-cyan) !important;
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
+    outline: none;
+}
+
+.search-form input::placeholder {
+    color: var(--text-secondary);
+}
+
+/* === Tags & Categories === */
+.tag, .category-tag {
+    font-family: 'JetBrains Mono', monospace !important;
+    font-size: 0.75rem;
+    background: rgba(0, 240, 255, 0.1) !important;
+    border: 1px solid rgba(0, 240, 255, 0.2);
+    color: var(--neon-cyan) !important;
+    padding: 2px 8px;
+    border-radius: 2px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.tag:hover, .category-tag:hover {
+    background: rgba(0, 240, 255, 0.2) !important;
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
+}
+
+/* === Scrollbar === */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--dark-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 240, 255, 0.3);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 240, 255, 0.5);
+}
+
+/* === Selection === */
+::selection {
+    background: rgba(0, 240, 255, 0.3);
+    color: var(--neon-cyan);
+}
+
+/* === Footer === */
+.footer {
+    background: var(--dark-surface) !important;
+    border-top: 1px solid rgba(0, 240, 255, 0.1) !important;
+    font-family: 'JetBrains Mono', monospace !important;
+}
+
+/* === Typing cursor animation === */
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1em;
+    background: var(--neon-green);
+    animation: blink 1s infinite;
+    vertical-align: text-bottom;
+    box-shadow: 0 0 5px var(--neon-green);
+}
+
+/* === Glitch effect for hero text === */
+@keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+    100% { transform: translate(0); }
+}
+
+.glitch {
+    position: relative;
+}
+
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.glitch::before {
+    animation: glitch 2s infinite;
+    color: var(--neon-cyan);
+    z-index: -1;
+}
+
+.glitch::after {
+    animation: glitch 3s infinite reverse;
+    color: var(--neon-purple);
+    z-index: -2;
+}
+
+/* === Pulse animation for important elements === */
+@keyframes pulse {
+    0%, 100% { box-shadow: 0 0 5px rgba(0, 240, 255, 0.2); }
+    50% { box-shadow: 0 0 20px rgba(0, 240, 255, 0.4); }
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+/* === Matrix rain container === */
+#matrix-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+    .header .logo {
+        font-size: 0.9rem;
+        letter-spacing: 1px;
+    }
+
+    h1 { font-size: 1.5rem; }
+    h2 { font-size: 1.2rem; }
+
+    .navigation-menu a {
+        font-size: 0.75rem !important;
+    }
+}
+
+/* === Terminal-style blockquote === */
+blockquote {
+    background: rgba(0, 255, 65, 0.05) !important;
+    border-left: 3px solid var(--neon-green) !important;
+    font-family: 'JetBrains Mono', monospace !important;
+    position: relative;
+    padding-left: 20px;
+}
+
+blockquote::before {
+    content: '$';
+    position: absolute;
+    top: 8px;
+    left: -15px;
+    color: var(--neon-green);
+    font-weight: bold;
+    text-shadow: 0 0 5px var(--neon-green);
+}
+
+/* === Neon glow button === */
+.neon-btn {
+    display: inline-block;
+    padding: 10px 25px;
+    border: 1px solid var(--neon-cyan);
+    color: var(--neon-cyan);
+    font-family: 'Orbitron', monospace;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    background: transparent;
+    cursor: pointer;
+}
+
+.neon-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.neon-btn:hover {
+    background: rgba(0, 240, 255, 0.1);
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.3), inset 0 0 20px rgba(0, 240, 255, 0.1);
+    text-shadow: 0 0 10px var(--neon-cyan);
+}
+
+.neon-btn:hover::before {
+    left: 100%;
+}
+
+/* === Binary/hex decorative text === */
+.binary-text {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    color: rgba(0, 240, 255, 0.1);
+    line-height: 1;
+    overflow: hidden;
+    white-space: nowrap;
+}
