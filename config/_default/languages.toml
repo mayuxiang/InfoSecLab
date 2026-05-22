@@ -1,0 +1,6 @@
+[en]
+    label = "English"
+    weight = 1
+
+    [en.params.sidebar]
+        subtitle = "Information Security · Artificial Intelligence · Embodied Intelligence"

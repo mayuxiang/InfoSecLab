@@ -1,0 +1,29 @@
+[[main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+
+[[main]]
+    name = "About"
+    url = "/page/about/"
+    weight = 2
+
+[[main]]
+    name = "Research"
+    url = "/page/research/"
+    weight = 3
+
+[[main]]
+    name = "Publications"
+    url = "/page/publications/"
+    weight = 4
+
+[[main]]
+    name = "Team"
+    url = "/page/team/"
+    weight = 5
+
+[[main]]
+    name = "Contact"
+    url = "/page/contact/"
+    weight = 6

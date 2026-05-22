@@ -1,0 +1,112 @@
+baseURL: https://web.eailab.site/
+languageCode: en-us
+title: "Information Security LAB"
+theme: toha
+
+# Manage languages
+languages:
+  en:
+    languageCode: en
+    languageName: English
+    title: "Information Security LAB"
+    weight: 1
+
+# default language for the content
+defaultContentLanguage: en
+
+# Allow raw html in markdown file
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  tableOfContents:
+    startLevel: 2
+    endLevel: 6
+    ordered: false
+
+# At least HTML and JSON are required for the main HTML content and
+# client-side JavaScript search
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+# Configure custom path for RSS feed. Default is "index.xml"
+outputFormats:
+  rss:
+    baseName: rss
+
+# Enable global emoji support
+enableEmoji: true
+
+# Configure sitemap
+sitemap:
+  changefreq: monthly
+  priority: 0.5
+  filename: sitemap.xml
+  disable: false
+
+# Site parameters
+params:
+  # Background image of the landing page
+  background: /images/site/background.jpg
+
+  # Provide information about your
+  author:
+    name: "Information Security LAB"
+    image: /images/author/lab-logo.png
+
+  # description for the site
+  description: "Information Security LAB at Henan University - Cybersecurity, AI, and Embodied Intelligence Research"
+
+  # enable dark mode
+  enableDarkMode: true
+
+  # the sections of the landing page
+  sections:
+    enable: true
+
+  # navbar configuration
+  navbar:
+    enable: true
+    # logo:
+    #   text: "IS Lab"
+    #   image: /images/site/logo.png
+
+  # footer configuration
+  footer:
+    enable: true
+    navigation:
+      enable: true
+      customMenus: true
+    contactMe:
+      enable: true
+    credentials:
+      enable: true
+    newsletter:
+      enable: false
+    disclaimer:
+      enable: true
+
+  # Features
+  features:
+    # Enable dark mode toggle
+    darkMode:
+      enable: true
+      # default theme (default: 'light')
+      theme: dark
+      # dark mode theme (default: 'dark')
+      darkTheme: dark
+
+    # Enable syntax highlight
+    syntaxHighlight:
+      enable: true
+
+    # Enable copy code button
+    copyCodeButton:
+      enable: true
+
+    # Number of posts to show per page
+    pagination:
+      maxPostsPerPage: 12

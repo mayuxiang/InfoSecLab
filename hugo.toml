@@ -1,0 +1,12 @@
+baseURL = "https://web.eailab.site/"
+locale = "en-us"
+title = "Information Security LAB"
+defaultContentLanguage = "en"
+hasCJKLanguage = false
+theme = "stack"
+
+[pagination]
+    pagerSize = 10
+
+[permalinks]
+    page = "/:slug/"
